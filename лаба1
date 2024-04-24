@@ -1,0 +1,40 @@
+1.1
+
+from math import*
+p=1
+x=2
+y=1
+z=1
+r1=p**(z**(x*y)) + e**(-(x**2)/2) +1.2*abs(x)
+print(r1)
+
+from math import*
+x=2
+z=1
+a=2
+r1=e**(sin(x) + tan(x)) + 3*a*abs(log(z))
+print(r1)
+
+from math import*
+x=2
+a=2
+b=1
+z=2
+r1=((sqrt(x**2 + (sin(x**3)**2) - 4.3))/(2*x + 8*a*b*(sqrt(z)**3)))
+print(r1)
+
+from math import*
+x=0.1
+a=2
+r1=((asin(sqrt(1+7*x**2)))/(32*a))
+print(r1)
+
+1.2
+
+from math import*
+x=1
+y5=0
+a=1+atan(y5)
+u=3*log(abs(x-y5))
+r1=(sqrt(abs(u) + 8*a)**3)/(3+(cos(u))**4)
+print(r1)
