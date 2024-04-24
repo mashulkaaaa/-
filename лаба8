@@ -1,0 +1,32 @@
+8.1
+
+import numpy as np
+S = 30
+G = 6
+K = 80301
+A = np.array([[1, 5, 1],
+              [4, -1, 1],
+              [S, G, 2*(S+G+K)]])
+
+B = np.array([S-G+K+10, S-G+4*K-2, 2*((S-G)*(S+G+K)+G)+K*S])
+X = np.linalg.solve(A, B)
+print("Решение СЛАУ:")
+print("x1 =", X[0])
+print("x2 =", X[1])
+print("x3 =", X[2])
+
+8.2
+
+import numpy as np
+S = 30
+G = 6
+K = 80301
+A = np.array([[1, 5, 1], [4, -1, 1], [S, G, 2*(S+G+K)]])
+# Вычисление обратной матрицы
+A_inv = np.linalg.inv(A)
+# Вычисление определителя матрицы
+det_A = np.linalg.det(A)
+print("Обратная матрица:")
+print(A_inv)
+print("\nОпределитель матрицы:")
+print(det_A)
