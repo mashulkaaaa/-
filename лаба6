@@ -1,0 +1,25 @@
+6.1
+
+m = int(input("Введите размер массивов A и B (не более 15): "))
+
+A = []
+B = []
+C = []
+
+print("Введите элементы массива A:")
+for i in range(m):
+    A.append(int(input()))
+
+print("Введите элементы массива B:")
+for i in range(m):
+    B.append(int(input()))
+
+for i in range(m):
+    if A[i] > B[i]:
+        C.append(A[i])
+    else:
+        C.append(B[i])
+
+print("Массив A:", A)
+print("Массив B:", B)
+print("Массив C:", C)
