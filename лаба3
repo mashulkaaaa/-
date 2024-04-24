@@ -1,0 +1,17 @@
+3.1
+
+x = 5
+y = 8
+z = 10
+M = 6
+count = 0
+if x > M:
+    print(x)
+    count += 1
+if y > M:
+    print(y)
+    count += 1
+if z > M:
+    print(z)
+    count += 1
+print("Количество чисел, больших", M, ":", count)
