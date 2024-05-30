@@ -1,0 +1,51 @@
+import numpy as np
+
+# Заданные значения
+S = 30
+G = 6
+K = 80301
+
+# Коэффициенты перед переменными в левой части уравнений
+A = np.array([[1, 5, 1],
+              [4, -1, 1],
+              [S, G, 2*(S+G+K)]])
+
+# Правая часть уравнений
+B = np.array([S-G+K+10, S-G+4*K-2, 2*((S-G)*(S+G+K)+G)+K*S])
+
+# Метод простой итерации
+def simple_iteration(A, B, tol=1e-6, max_iter=1000):
+    n = len(B)
+    x = np.zeros(n)
+    x_new = np.zeros(n)
+    D = np.diag(np.diag(A))
+    LU = A - D
+    for _ in range(max_iter):
+        x_new = np.dot(np.linalg.inv(D), B - np.dot(LU, x))
+        if np.linalg.norm(x_new - x) < tol:
+            return x_new
+        x = x_new
+    return x_new
+
+# Решение методом простой итерации
+x_simple = simple_iteration(A, B)
+print("Решение методом простой итерации:")
+print(x_simple)
+
+# Метод Зейделя
+def gauss_seidel(A, B, tol=1e-6, max_iter=1000):
+    n = len(B)
+    x = np.zeros(n)
+    x_new = np.zeros(n)
+    for _ in range(max_iter):
+        for i in range(n):
+            x_new[i] = (B[i] - np.dot(A[i, :i], x_new[:i]) - np.dot(A[i, i + 1:], x[i + 1:])) / A[i, i]
+        if np.linalg.norm(x_new - x) < tol:
+            return x_new
+        x = x_new
+    return x_new
+
+# Решение методом Зейделя
+x_seidel = gauss_seidel(A, B)
+print("\nРешение методом Зейделя:")
+print(x_seidel)
